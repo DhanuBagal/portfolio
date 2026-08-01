@@ -80,19 +80,19 @@ export const Navbar = ({ darkMode, setDarkMode, onCopyEmail }) => {
 
         {/* Brand & Live Time Signature */}
         <a href="#home" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 rounded-2xl bg-[#D98F9D] text-white font-extrabold flex items-center justify-center text-sm shadow-xs transition-transform duration-300 group-hover:scale-105 shrink-0">
+          <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-indigo-600 to-cyan-500 text-white font-extrabold flex items-center justify-center text-sm shadow-indigo-glow transition-transform duration-300 group-hover:scale-105 shrink-0">
             DB
           </div>
           <div className="flex flex-col">
-            <span className="font-bold text-sm sm:text-base tracking-tight text-[#222222] dark:text-slate-100 group-hover:text-[#D98F9D] transition-colors flex items-center gap-1.5">
-              Dhanashree Bagal <span className="text-xs text-[#D98F9D]">©</span>
+            <span className="font-bold text-sm sm:text-base tracking-tight text-slate-900 dark:text-slate-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors flex items-center gap-1.5">
+              Dhanashree Bagal <span className="text-xs text-indigo-500">©</span>
             </span>
-            <div className="flex items-center gap-2 text-[11px] font-medium text-[#2F3640] dark:text-slate-400">
+            <div className="flex items-center gap-2 text-[11px] font-medium text-slate-600 dark:text-slate-400">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-              <span>Available</span>
-              <span className="text-[#8B93A0] dark:text-slate-600">•</span>
+              <span className="text-emerald-600 dark:text-emerald-400 font-semibold">Available</span>
+              <span className="text-slate-400 dark:text-slate-600">•</span>
               <span className="flex items-center gap-1">
-                <Clock className="w-3 h-3 text-[#D98F9D]" />
+                <Clock className="w-3 h-3 text-cyan-500" />
                 <span>Pune {currentTime && `(${currentTime})`}</span>
               </span>
             </div>
@@ -100,20 +100,20 @@ export const Navbar = ({ darkMode, setDarkMode, onCopyEmail }) => {
         </a>
 
         {/* Floating Pill Navigation Bar (Nikola Radeski Inspired) */}
-        <nav className="hidden lg:flex items-center gap-1 px-3 py-1.5 rounded-full floating-nav border border-[#EFE4E6] dark:border-[#383E4B]">
+        <nav className="hidden lg:flex items-center gap-1 px-3 py-1.5 rounded-full floating-nav border border-slate-200/80 dark:border-slate-800">
           {navLinks.map((link) => {
             const isActive = activeSection === link.href.substring(1);
             return (
               <a
                 key={link.name}
                 href={link.href}
-                className={`relative px-4 py-1.5 text-xs font-semibold rounded-full transition-all duration-200 ${isActive ? 'text-[#222222] dark:text-white font-bold' : 'text-[#2F3640] dark:text-slate-300 hover:text-[#D98F9D] dark:hover:text-[#D98F9D]'
+                className={`relative px-4 py-1.5 text-xs font-semibold rounded-full transition-all duration-200 ${isActive ? 'text-slate-900 dark:text-white font-bold' : 'text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400'
                   }`}
               >
                 {isActive && (
                   <motion.div
                     layoutId="activeTab"
-                    className="absolute inset-0 bg-white dark:bg-[#2A2F3A] shadow-xs border border-[#EFE4E6] dark:border-[#4B5364] rounded-full"
+                    className="absolute inset-0 bg-white dark:bg-[#1E293B] shadow-xs border border-indigo-200 dark:border-indigo-500/30 rounded-full"
                     transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                   />
                 )}
@@ -128,7 +128,7 @@ export const Navbar = ({ darkMode, setDarkMode, onCopyEmail }) => {
           {/* Copy Email Button */}
           <button
             onClick={handleCopyEmailClick}
-            className="flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold rounded-xl bg-white dark:bg-[#242831] border border-[#EFE4E6] dark:border-[#383E4B] text-[#222222] dark:text-slate-200 hover:border-[#D98F9D] transition-all shadow-xs"
+            className="flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold rounded-xl bg-white dark:bg-[#161E2E] border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 hover:border-indigo-500/50 transition-all shadow-xs"
             title="Copy Email"
           >
             {copied ? (
@@ -138,7 +138,7 @@ export const Navbar = ({ darkMode, setDarkMode, onCopyEmail }) => {
               </>
             ) : (
               <>
-                <Copy className="w-3.5 h-3.5 text-[#D98F9D]" />
+                <Copy className="w-3.5 h-3.5 text-indigo-500" />
                 <span>Copy Email</span>
               </>
             )}
@@ -147,7 +147,7 @@ export const Navbar = ({ darkMode, setDarkMode, onCopyEmail }) => {
           {/* Dark/Light Mode Toggle */}
           <button
             onClick={() => setDarkMode(!darkMode)}
-            className="p-2.5 rounded-xl bg-white dark:bg-[#242831] border border-[#EFE4E6] dark:border-[#383E4B] text-[#2F3640] dark:text-slate-400 hover:text-[#D98F9D] transition-all shadow-xs"
+            className="p-2.5 rounded-xl bg-white dark:bg-[#161E2E] border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all shadow-xs"
             title="Toggle Theme"
             aria-label="Toggle Theme"
           >
@@ -157,7 +157,7 @@ export const Navbar = ({ darkMode, setDarkMode, onCopyEmail }) => {
           {/* Download Resume Button */}
           <button
             onClick={handleDownloadResume}
-            className="flex items-center gap-1.5 px-4 py-2 text-xs font-semibold rounded-xl bg-[#D98F9D] hover:bg-[#C77D8B] text-white shadow-xs transition-all duration-200 transform active:scale-95 shrink-0"
+            className="flex items-center gap-1.5 px-4 py-2 text-xs font-semibold rounded-xl bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-500 hover:to-indigo-600 text-white shadow-indigo-glow transition-all duration-200 transform active:scale-95 shrink-0"
           >
             <Download className="w-3.5 h-3.5" />
             <span>Resume</span>
@@ -168,7 +168,7 @@ export const Navbar = ({ darkMode, setDarkMode, onCopyEmail }) => {
         <div className="flex lg:hidden items-center gap-2">
           <button
             onClick={() => setDarkMode(!darkMode)}
-            className="p-2 rounded-lg bg-white dark:bg-[#242831] border border-[#EFE4E6] dark:border-[#383E4B] text-[#2F3640] dark:text-slate-400"
+            className="p-2 rounded-lg bg-white dark:bg-[#161E2E] border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300"
             aria-label="Toggle theme"
           >
             {darkMode ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-slate-700" />}
@@ -176,7 +176,7 @@ export const Navbar = ({ darkMode, setDarkMode, onCopyEmail }) => {
 
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-lg bg-white dark:bg-[#242831] border border-[#EFE4E6] dark:border-[#383E4B] text-[#222222] dark:text-slate-200"
+            className="p-2 rounded-lg bg-white dark:bg-[#161E2E] border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-200"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -192,7 +192,7 @@ export const Navbar = ({ darkMode, setDarkMode, onCopyEmail }) => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden rose-card rounded-2xl border border-[#EFE4E6] dark:border-[#383E4B] mt-3 px-5 py-6 shadow-lg max-w-7xl mx-auto"
+            className="lg:hidden tech-card rounded-2xl border border-slate-200 dark:border-slate-800 mt-3 px-5 py-6 shadow-lg max-w-7xl mx-auto"
           >
             <div className="flex flex-col gap-2">
               {navLinks.map((link) => (
@@ -200,23 +200,23 @@ export const Navbar = ({ darkMode, setDarkMode, onCopyEmail }) => {
                   key={link.name}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="px-4 py-2.5 rounded-xl text-[#222222] dark:text-slate-200 hover:text-[#D98F9D] hover:bg-[#F2D5DA] dark:hover:bg-[#3F2B32] text-sm font-semibold transition-colors"
+                  className="px-4 py-2.5 rounded-xl text-slate-900 dark:text-slate-200 hover:text-indigo-600 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 text-sm font-semibold transition-colors"
                 >
                   {link.name}
                 </a>
               ))}
-              <div className="pt-4 border-t border-[#EFE4E6] dark:border-[#383E4B] flex flex-col gap-2">
+              <div className="pt-4 border-t border-slate-200 dark:border-slate-800 flex flex-col gap-2">
                 <button
                   onClick={handleCopyEmailClick}
-                  className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-white dark:bg-[#2A2F3A] border border-[#EFE4E6] dark:border-[#383E4B] text-xs font-semibold text-[#222222] dark:text-white"
+                  className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-white dark:bg-[#1E293B] border border-slate-200 dark:border-slate-800 text-xs font-semibold text-slate-900 dark:text-white"
                 >
-                  <Copy className="w-3.5 h-3.5 text-[#D98F9D]" />
+                  <Copy className="w-3.5 h-3.5 text-indigo-500" />
                   <span>Copy Email: {portfolioData.personal.email}</span>
                 </button>
 
                 <button
                   onClick={handleDownloadResume}
-                  className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-[#D98F9D] hover:bg-[#C77D8B] text-white font-semibold text-xs shadow-xs"
+                  className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-500 hover:to-indigo-600 text-white font-semibold text-xs shadow-xs"
                 >
                   <Download className="w-4 h-4" />
                   <span>Download Resume PDF</span>

@@ -8,22 +8,22 @@
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 
-  /* Option 1: Rose & Charcoal Background (#FAF7F7) & Text (#222222) */
+  /* Developer Theme Light Background (#F8FAFC) & Dark Background (#0B0F17) */
   body {
-    @apply bg-[#FAF7F7] text-[#222222] min-h-screen overflow-x-hidden antialiased;
-    background-color: #FAF7F7;
-    color: #222222;
+    @apply bg-[#F8FAFC] text-slate-900 min-h-screen overflow-x-hidden antialiased;
+    background-color: #F8FAFC;
+    color: #0F172A;
   }
 
-  /* Dark Theme Support (Charcoal & Rose) */
+  /* Dark Theme Support (Obsidian & Slate) */
   .dark body {
-    @apply bg-[#1A1D24] text-slate-100;
-    background-color: #1A1D24;
-    color: #F3E8EA;
+    @apply bg-[#0B0F17] text-slate-100;
+    background-color: #0B0F17;
+    color: #F8FAFC;
   }
 }
 
-/* Custom Scrollbar */
+/* Custom Scrollbar - Electric Indigo & Cyan */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -31,65 +31,71 @@
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #D98F9D;
+  background: #6366F1;
   border-radius: 9999px;
 }
 .dark ::-webkit-scrollbar-thumb {
-  background: #7F3643;
+  background: #4338CA;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #C77D8B;
+  background: #4F46E5;
 }
 
-/* Card Styling - Rose & Charcoal Light & Dark */
-.pastel-card, .blush-card, .rose-card {
-  @apply bg-white border border-[#EFE4E6] shadow-sm transition-all duration-300;
-  box-shadow: 0 4px 18px -2px rgba(217, 143, 157, 0.12);
+/* Card Styling - Modern Tech Developer Light & Dark */
+.tech-card, .rose-card, .pastel-card, .blush-card {
+  @apply bg-white border border-slate-200/80 shadow-sm transition-all duration-300;
+  box-shadow: 0 4px 20px -2px rgba(99, 102, 241, 0.08);
 }
 
-.dark .pastel-card, .dark .blush-card, .dark .rose-card {
-  @apply bg-[#242831] border-[#383E4B] shadow-none;
-  background-color: rgba(36, 40, 49, 0.95);
+.dark .tech-card, .dark .rose-card, .dark .pastel-card, .dark .blush-card {
+  @apply bg-[#161E2E] border-slate-800/90 shadow-none;
+  background-color: rgba(22, 30, 46, 0.95);
 }
 
-.pastel-card-hover, .blush-card-hover, .rose-card-hover {
-  @apply hover:shadow-md hover:border-[#D98F9D] hover:-translate-y-0.5;
+.tech-card-hover, .rose-card-hover, .pastel-card-hover, .blush-card-hover {
+  @apply hover:shadow-md hover:border-indigo-500/50 hover:-translate-y-0.5;
 }
 
-.dark .pastel-card-hover, .dark .blush-card-hover, .dark .rose-card-hover {
-  @apply hover:border-[#D98F9D] hover:bg-[#2A2F3A];
+.dark .tech-card-hover, .dark .rose-card-hover, .dark .pastel-card-hover, .dark .blush-card-hover {
+  @apply hover:border-indigo-500/60 hover:bg-[#1C263B];
 }
 
 /* Navbar blur */
-.pastel-nav, .blush-nav, .rose-nav {
-  @apply bg-[#FAF7F7]/90 border-b border-[#EFE4E6] backdrop-blur-md;
+.tech-nav, .rose-nav, .pastel-nav {
+  @apply bg-[#F8FAFC]/90 border-b border-slate-200 backdrop-blur-md;
 }
 
-.dark .pastel-nav, .dark .blush-nav, .dark .rose-nav {
-  @apply bg-[#1A1D24]/90 border-b border-[#383E4B] backdrop-blur-md;
+.dark .tech-nav, .dark .rose-nav, .dark .pastel-nav {
+  @apply bg-[#0B0F17]/90 border-b border-slate-800 backdrop-blur-md;
 }
 
-/* Rose & Charcoal Badge Utilities */
-.badge-rose, .badge-blush, .badge-pink {
-  @apply bg-[#F2D5DA] text-[#8B3B4A] border border-[#E4B8C1] font-semibold;
+/* Tech Developer Badge Utilities */
+.badge-indigo, .badge-rose, .badge-blush, .badge-pink {
+  @apply bg-indigo-50 text-indigo-700 border border-indigo-200 font-semibold;
 }
-.dark .badge-rose, .dark .badge-blush, .dark .badge-pink {
-  @apply bg-[#3F2B32] text-[#F2D5DA] border border-[#7F3643];
-}
-
-.badge-charcoal {
-  @apply bg-[#2F3640] text-white border border-[#1A1D24] font-semibold;
-}
-.dark .badge-charcoal {
-  @apply bg-[#383E4B] text-slate-100 border border-[#4B5364];
+.dark .badge-indigo, .dark .badge-rose, .dark .badge-blush, .dark .badge-pink {
+  @apply bg-indigo-950/60 text-indigo-300 border border-indigo-800/80;
 }
 
-
-.badge-slate {
-  @apply bg-[#F0F2F5] text-[#2F3640] border border-[#D5D8DC] font-medium;
+.badge-cyan {
+  @apply bg-cyan-50 text-cyan-700 border border-cyan-200 font-semibold;
 }
-.dark .badge-slate {
-  @apply bg-[#2A2F3A] text-slate-200 border border-[#383E4B];
+.dark .badge-cyan {
+  @apply bg-cyan-950/60 text-cyan-300 border border-cyan-800/80;
+}
+
+.badge-emerald {
+  @apply bg-emerald-50 text-emerald-700 border border-emerald-200 font-semibold;
+}
+.dark .badge-emerald {
+  @apply bg-emerald-950/60 text-emerald-300 border border-emerald-800/80;
+}
+
+.badge-charcoal, .badge-slate {
+  @apply bg-slate-100 text-slate-800 border border-slate-200 font-medium;
+}
+.dark .badge-charcoal, .dark .badge-slate {
+  @apply bg-slate-800/80 text-slate-200 border border-slate-700;
 }
 
 /* Marquee Animation */
@@ -110,17 +116,17 @@
 
 /* Floating Pill Navbar Glass effect */
 .floating-nav {
-  background: rgba(250, 247, 247, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 8px 32px 0 rgba(217, 143, 157, 0.15);
+  background: rgba(248, 250, 252, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 8px 32px 0 rgba(99, 102, 241, 0.12);
 }
 
 .dark .floating-nav {
-  background: rgba(26, 29, 36, 0.88);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+  background: rgba(11, 15, 23, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
 }
 
 

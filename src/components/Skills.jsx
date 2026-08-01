@@ -25,18 +25,18 @@ export const Skills = () => {
     : skills.filter(s => s.category === activeTab);
 
   return (
-    <section id="skills" className="py-24 relative overflow-hidden bg-[#FAF7F7] dark:bg-[#1A1D24]">
+    <section id="skills" className="py-24 relative overflow-hidden bg-[#F8FAFC] dark:bg-[#0B0F17]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header (Nikola Radeski Style) */}
         <div className="flex flex-col items-start mb-12">
-          <span className="text-xs font-bold tracking-wider uppercase text-[#D98F9D] dark:text-[#D98F9D] mb-3">
+          <span className="text-xs font-mono font-bold tracking-wider uppercase text-indigo-600 dark:text-indigo-400 mb-3">
             / 02 Tech Stack
           </span>
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-[#222222] dark:text-white tracking-tight leading-tight">
-            What I <span className="text-[#D98F9D]">work with</span>
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">
+            What I <span className="bg-gradient-to-r from-indigo-600 to-cyan-500 bg-clip-text text-transparent">work with</span>
           </h2>
-          <p className="text-[#2F3640] dark:text-slate-300 mt-3 max-w-2xl text-base leading-relaxed">
+          <p className="text-slate-600 dark:text-slate-300 mt-3 max-w-2xl text-base leading-relaxed">
             Languages, frameworks, and cloud infrastructure tools I rely on daily in production environments.
           </p>
         </div>
@@ -49,8 +49,8 @@ export const Skills = () => {
               onClick={() => setActiveTab(cat)}
               className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all duration-200 ${
                 activeTab === cat
-                  ? 'bg-[#D98F9D] text-white shadow-xs'
-                  : 'bg-white dark:bg-[#242831] text-[#2F3640] dark:text-slate-400 hover:text-[#222222] dark:hover:text-white border border-[#EFE4E6] dark:border-[#383E4B]'
+                  ? 'bg-gradient-to-r from-indigo-600 to-indigo-700 text-white shadow-indigo-glow'
+                  : 'bg-white dark:bg-[#161E2E] text-slate-700 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-slate-800'
               }`}
             >
               {cat}
@@ -67,17 +67,17 @@ export const Skills = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: idx * 0.08 }}
-              className="rose-card rounded-2xl p-6 sm:p-8"
+              className="tech-card rounded-2xl p-6 sm:p-8"
             >
-              <div className="flex items-center justify-between pb-4 mb-6 border-b border-[#EFE4E6] dark:border-[#383E4B]">
+              <div className="flex items-center justify-between pb-4 mb-6 border-b border-slate-200 dark:border-slate-800">
                 <div>
-                  <h3 className="text-xl font-bold text-[#222222] dark:text-white flex items-center gap-2.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#D98F9D]"></span>
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2.5">
+                    <span className="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-indigo-600 to-cyan-500"></span>
                     {catGroup.category}
                   </h3>
-                  <p className="text-xs text-[#2F3640] dark:text-slate-400 mt-1">{catGroup.description}</p>
+                  <p className="text-xs text-slate-600 dark:text-slate-400 mt-1">{catGroup.description}</p>
                 </div>
-                <span className="text-xs font-semibold px-3 py-1 rounded-full bg-[#FAF7F7] dark:bg-[#2A2F3A] text-[#2F3640] dark:text-slate-300 border border-[#EFE4E6] dark:border-[#383E4B]">
+                <span className="text-xs font-semibold font-mono px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
                   {catGroup.items.length} Technologies
                 </span>
               </div>
@@ -89,18 +89,18 @@ export const Skills = () => {
                   return (
                     <div 
                       key={skill.name}
-                      className="p-4 rounded-xl bg-[#FAF7F7] dark:bg-[#2A2F3A] border border-[#EFE4E6] dark:border-[#383E4B] hover:border-[#D98F9D] transition-colors flex items-center justify-between gap-3 group"
+                      className="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/80 hover:border-indigo-500/60 transition-colors flex items-center justify-between gap-3 group"
                     >
                       <div className="flex items-center gap-3">
-                        <div className="w-9 h-9 rounded-lg bg-white dark:bg-[#1A1D24] border border-[#EFE4E6] dark:border-[#383E4B] flex items-center justify-center text-[#D98F9D] group-hover:scale-105 transition-transform shadow-xs">
+                        <div className="w-9 h-9 rounded-lg bg-white dark:bg-[#0B0F17] border border-slate-200 dark:border-slate-800 flex items-center justify-center text-indigo-600 dark:text-cyan-400 group-hover:scale-105 transition-transform shadow-xs">
                           <IconComponent className="w-4 h-4" />
                         </div>
-                        <span className="text-sm font-bold text-[#222222] dark:text-slate-200">
+                        <span className="text-sm font-bold text-slate-900 dark:text-slate-200">
                           {skill.name}
                         </span>
                       </div>
 
-                      <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded bg-white dark:bg-[#1A1D24] text-[#2F3640] dark:text-slate-300 border border-[#EFE4E6] dark:border-[#383E4B] shrink-0">
+                      <span className="text-[11px] font-mono font-semibold px-2.5 py-0.5 rounded bg-white dark:bg-[#0B0F17] text-indigo-600 dark:text-cyan-300 border border-indigo-200 dark:border-indigo-800/60 shrink-0">
                         {skill.tag || "Production"}
                       </span>
                     </div>
