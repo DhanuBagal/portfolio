@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* Option 1: Rose & Charcoal Background (#FAF7F7) & Text (#222222) */
+  body {
+    @apply bg-[#FAF7F7] text-[#222222] min-h-screen overflow-x-hidden antialiased;
+    background-color: #FAF7F7;
+    color: #222222;
+  }
+
+  /* Dark Theme Support (Charcoal & Rose) */
+  .dark body {
+    @apply bg-[#1A1D24] text-slate-100;
+    background-color: #1A1D24;
+    color: #F3E8EA;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #D98F9D;
+  border-radius: 9999px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #7F3643;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C77D8B;
+}
+
+/* Card Styling - Rose & Charcoal Light & Dark */
+.pastel-card, .blush-card, .rose-card {
+  @apply bg-white border border-[#EFE4E6] shadow-sm transition-all duration-300;
+  box-shadow: 0 4px 18px -2px rgba(217, 143, 157, 0.12);
+}
+
+.dark .pastel-card, .dark .blush-card, .dark .rose-card {
+  @apply bg-[#242831] border-[#383E4B] shadow-none;
+  background-color: rgba(36, 40, 49, 0.95);
+}
+
+.pastel-card-hover, .blush-card-hover, .rose-card-hover {
+  @apply hover:shadow-md hover:border-[#D98F9D] hover:-translate-y-0.5;
+}
+
+.dark .pastel-card-hover, .dark .blush-card-hover, .dark .rose-card-hover {
+  @apply hover:border-[#D98F9D] hover:bg-[#2A2F3A];
+}
+
+/* Navbar blur */
+.pastel-nav, .blush-nav, .rose-nav {
+  @apply bg-[#FAF7F7]/90 border-b border-[#EFE4E6] backdrop-blur-md;
+}
+
+.dark .pastel-nav, .dark .blush-nav, .dark .rose-nav {
+  @apply bg-[#1A1D24]/90 border-b border-[#383E4B] backdrop-blur-md;
+}
+
+/* Rose & Charcoal Badge Utilities */
+.badge-rose, .badge-blush, .badge-pink {
+  @apply bg-[#F2D5DA] text-[#8B3B4A] border border-[#E4B8C1] font-semibold;
+}
+.dark .badge-rose, .dark .badge-blush, .dark .badge-pink {
+  @apply bg-[#3F2B32] text-[#F2D5DA] border border-[#7F3643];
+}
+
+.badge-charcoal {
+  @apply bg-[#2F3640] text-white border border-[#1A1D24] font-semibold;
+}
+.dark .badge-charcoal {
+  @apply bg-[#383E4B] text-slate-100 border border-[#4B5364];
+}
+
+
+.badge-slate {
+  @apply bg-[#F0F2F5] text-[#2F3640] border border-[#D5D8DC] font-medium;
+}
+.dark .badge-slate {
+  @apply bg-[#2A2F3A] text-slate-200 border border-[#383E4B];
+}
+
+/* Marquee Animation */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Floating Pill Navbar Glass effect */
+.floating-nav {
+  background: rgba(250, 247, 247, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px 0 rgba(217, 143, 157, 0.15);
+}
+
+.dark .floating-nav {
+  background: rgba(26, 29, 36, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+}
+
+
+
+
+
