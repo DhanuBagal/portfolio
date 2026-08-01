@@ -14,7 +14,7 @@ export const portfolioData = {
     summary: "Software Engineer with 1+ year of hands-on experience building scalable full-stack applications. Proven track record of shipping end-to-end production features (Form Versioning, Asset Tracking, QA/QC Automation) for international clients. Promoted from Intern to full-time Engineer within 6 months. AWS Certified Cloud Practitioner.",
     socials: {
       linkedin: "https://linkedin.com/in/dhanashree-bagal",
-      github: "https://github.com/dhanashree-bagal",
+      github: "https://github.com/DhanuBagal",
       leetcode: "https://leetcode.com/dhanashree-bagal",
       email: "mailto:bagaldhanashree14@gmail.com"
     },
@@ -143,7 +143,7 @@ export const portfolioData = {
         "Interactive dashboard analytics for leave utilization"
       ],
       demoLink: "#",
-      githubLink: "https://github.com/dhanashree-bagal",
+      githubLink: "https://github.com/DhanuBagal",
       imageGrad: "from-emerald-600/30 to-sky-600/30"
     },
     {
@@ -160,7 +160,7 @@ export const portfolioData = {
         "Transparent real-time tally audit system"
       ],
       demoLink: "#",
-      githubLink: "https://github.com/dhanashree-bagal",
+      githubLink: "https://github.com/DhanuBagal/EVoting-System-Using-Blockchain-and-Face-Recognition",
       imageGrad: "from-sky-600/30 to-emerald-600/30"
     },
     {
@@ -177,7 +177,7 @@ export const portfolioData = {
         "Clean object-oriented architecture"
       ],
       demoLink: "#",
-      githubLink: "https://github.com/dhanashree-bagal",
+      githubLink: "https://github.com/DhanuBagal",
       imageGrad: "from-emerald-500/20 to-teal-600/30"
     }
   ],
