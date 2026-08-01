@@ -135,7 +135,7 @@ export const portfolioData = {
       category: "Full-Stack Enterprise App",
       summary: "Full-stack role-based access control (Admin/Employee), automated CI/CD pipeline, and containerized deployment on AWS.",
       fullDescription: "A comprehensive enterprise solution designed to streamline employee leave applications and manager approval workflows. Implements secure JWT authentication, role-based access control (RBAC), and automated email notifications. Containerized using Docker and deployed onto AWS EC2 via automated GitHub Actions CI/CD pipelines.",
-      techStack: ["Angular", "Spring Boot", "MySQL", "Docker", "AWS EC2", "GitHub Actions"],
+      techStack: ["Angular 18", "Spring Boot", "MySQL", "Docker", "AWS EC2", "GitHub Actions"],
       keyFeatures: [
         "Role-Based Access Control (Admin vs Employee portal)",
         "Automated CI/CD deployment pipeline via GitHub Actions",
@@ -152,7 +152,7 @@ export const portfolioData = {
       category: "Blockchain & AI / Computer Vision",
       summary: "Secure voting solution combining blockchain immutability with real-time biometric identification.",
       fullDescription: "An advanced tamper-proof voting system engineered to prevent voter impersonation and double voting. Uses OpenCV and deep face recognition models for real-time facial verification before casting votes. Every cast vote is cryptographically hashed and appended to an immutable custom blockchain network.",
-      techStack: ["Python", "Blockchain", "OpenCV", "Face Recognition"],
+      techStack: ["Python", "Blockchain", "OpenCV", "Face Recognition", "Cryptography"],
       keyFeatures: [
         "Biometric voter identification via OpenCV facial recognition",
         "Cryptographically secure block hashing for vote immutability",
@@ -164,10 +164,44 @@ export const portfolioData = {
       imageGrad: "from-sky-600/30 to-emerald-600/30"
     },
     {
+      id: "library-mgmt",
+      title: "Library Management System",
+      category: "Java & Enterprise Database",
+      summary: "Comprehensive Library Management System with automated book tracking, cataloging, and transaction records.",
+      fullDescription: "An enterprise Java application built for library administration. Implements clean object-oriented architecture, book reservation workflows, fine calculations, and persistent SQL database storage for reliable multi-user operations.",
+      techStack: ["Java", "MySQL", "OOP", "JDBC", "Data Persistence"],
+      keyFeatures: [
+        "Normalized MySQL schema with transactional safety",
+        "Automated book issue, return, and fine tracking",
+        "Searchable book cataloging and member records",
+        "Clean Java OOP architecture"
+      ],
+      demoLink: "#",
+      githubLink: "https://github.com/DhanuBagal/Library-Management-System",
+      imageGrad: "from-indigo-600/30 to-purple-600/30"
+    },
+    {
+      id: "food-ordering",
+      title: "Food Ordering Services API & Backend",
+      category: "Backend Microservices & APIs",
+      summary: "Scalable food ordering backend service managing menus, cart states, and order fulfillment.",
+      fullDescription: "A modular backend service application managing food menus, order processing pipelines, user authentication, and real-time order status updates with clean API endpoints.",
+      techStack: ["Python", "REST APIs", "SQL Database", "System Design"],
+      keyFeatures: [
+        "RESTful API endpoints for menu & order workflows",
+        "Cart management and price calculation modules",
+        "Structured data validation and status tracking",
+        "Modular backend architecture"
+      ],
+      demoLink: "#",
+      githubLink: "https://github.com/DhanuBagal/food-ordering-services",
+      imageGrad: "from-amber-600/30 to-orange-600/30"
+    },
+    {
       id: "number-game",
       title: "Android Number Guessing Game",
       category: "Mobile Application",
-      summary: "Interactive mobile game with clean UI and state management.",
+      summary: "Interactive native Android mobile game built with Java and Android Studio.",
       fullDescription: "An engaging Android application created in Java and Android Studio. Features interactive game logic with dynamic feedback hints (Higher/Lower), visual scoring animations, level progression, and local high-score persistence.",
       techStack: ["Java", "Android Studio", "XML UI", "Mobile State Mgmt"],
       keyFeatures: [
@@ -177,9 +211,42 @@ export const portfolioData = {
         "Clean object-oriented architecture"
       ],
       demoLink: "#",
-      githubLink: "https://github.com/DhanuBagal",
+      githubLink: "https://github.com/DhanuBagal/Number-Guessing-Game-Using-Androisd-Studios",
       imageGrad: "from-emerald-500/20 to-teal-600/30"
     }
+    // ,
+    // {
+    //   id: "codechef-solutions",
+    //   title: "CodeChef Algorithms & Problem Solving",
+    //   category: "Algorithms & Competitive Coding",
+    //   summary: "Optimized solutions to complex algorithmic problems covering data structures, dynamic programming, and logic.",
+    //   fullDescription: "A repository of clean, optimized solutions to competitive programming problems on CodeChef. Demonstrates problem-solving proficiency in Python and Java focusing on time and space complexity optimizations.",
+    //   techStack: ["Python", "Data Structures", "Algorithms", "Problem Solving"],
+    //   keyFeatures: [
+    //     "Optimized data structure implementations (Trees, Graphs, DP)",
+    //     "Verified solutions to competitive coding benchmarks",
+    //     "Clean algorithmic efficiency & modular structure"
+    //   ],
+    //   demoLink: "#",
+    //   githubLink: "https://github.com/DhanuBagal/codechef-solutions",
+    //   imageGrad: "from-cyan-600/30 to-indigo-600/30"
+    // },
+    // {
+    //   id: "learn-python",
+    //   title: "Learn Python Architecture & Lab Notes",
+    //   category: "Python & Software Design Patterns",
+    //   summary: "Structured Python codebase featuring OOP principles, modular scripts, and functional design patterns.",
+    //   fullDescription: "A comprehensive repository containing Python core concept notes, object-oriented design patterns, laboratory code modules, and reusable algorithm scripts built during active practice.",
+    //   techStack: ["Python 3", "OOP", "Data Structures", "Functional Programming"],
+    //   keyFeatures: [
+    //     "Object-oriented class structures & inheritance patterns",
+    //     "Algorithmic problem solving & script utilities",
+    //     "Structured documentation and laboratory notes"
+    //   ],
+    //   demoLink: "#",
+    //   githubLink: "https://github.com/DhanuBagal/LearnPython",
+    //   imageGrad: "from-teal-600/30 to-emerald-600/30"
+    // }
   ],
 
   education: [
