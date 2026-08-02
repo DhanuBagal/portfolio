@@ -1,73 +1,124 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Github, ExternalLink, CheckCircle2, Layers } from 'lucide-react';
 
 export const ProjectModal = ({ project, onClose }) => {
+
+  // Lock body scroll ONLY when a project modal is actually open
+  useEffect(() => {
+    if (!project) return;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [project]);
+
+  // Close on Escape key — only when modal is open
+  useEffect(() => {
+    if (!project) return;
+    const handleKey = (e) => { if (e.key === 'Escape') onClose(); };
+    window.addEventListener('keydown', handleKey);
+    return () => window.removeEventListener('keydown', handleKey);
+  }, [project, onClose]);
+
   if (!project) return null;
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
-        
-        {/* Backdrop */}
+      {/* Full-screen overlay — centers modal, NO overflow scroll here */}
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6">
+
+        {/* Backdrop — click to close */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
-          className="fixed inset-0 bg-[#1A1D24]/60 dark:bg-black/80 backdrop-blur-xs"
+          className="fixed inset-0 backdrop-blur-sm"
+          style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}
         />
 
-        {/* Modal Window */}
+        {/* Modal Window — fixed max height, flex column so footer stays pinned */}
         <motion.div
           initial={{ opacity: 0, scale: 0.96, y: 15 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.96, y: 15 }}
           transition={{ type: 'spring', stiffness: 350, damping: 28 }}
-          className="relative w-full max-w-2xl bg-white dark:bg-[#161E2E] border border-slate-200 dark:border-slate-800 rounded-2xl p-6 sm:p-7 z-10 shadow-xl overflow-hidden my-8"
+          className="relative w-full max-w-2xl rounded-2xl z-10 shadow-2xl flex flex-col"
+          style={{
+            backgroundColor: 'var(--bg-card)',
+            border: '1px solid var(--border-main)',
+            maxHeight: 'min(90vh, 700px)',
+          }}
         >
-          {/* Header */}
-          <div className="flex items-start justify-between pb-4 border-b border-slate-200 dark:border-slate-800 gap-4">
+          {/* ── Header (sticky, never scrolls) ── */}
+          <div
+            className="flex items-start justify-between p-6 sm:p-7 pb-4 shrink-0"
+            style={{ borderBottom: '1px solid var(--border-main)' }}
+          >
             <div>
-              <span className="text-xs font-mono font-bold px-2.5 py-0.5 rounded bg-slate-900 text-cyan-300 mb-2 inline-block">
+              <span
+                className="text-xs font-mono font-bold px-2.5 py-0.5 rounded mb-2 inline-block"
+                style={{ backgroundColor: 'var(--pill-dark-bg)', color: 'var(--accent)' }}
+              >
                 {project.category}
               </span>
-              <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
+              <h3
+                className="text-xl sm:text-2xl font-bold"
+                style={{ color: 'var(--text-primary)' }}
+              >
                 {project.title}
               </h3>
             </div>
             <button
               onClick={onClose}
-              className="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
+              className="p-1.5 rounded-lg transition-colors shrink-0 ml-4 mt-1"
+              style={{
+                backgroundColor: 'var(--bg-subtle)',
+                border: '1px solid var(--border-subtle)',
+                color: 'var(--text-secondary)',
+              }}
               aria-label="Close modal"
             >
               <X className="w-5 h-5" />
             </button>
           </div>
 
-          {/* Body */}
-          <div className="py-5 space-y-5 max-h-[60vh] overflow-y-auto pr-1">
-            
+          {/* ── Scrollable Body (only this part scrolls) ── */}
+          <div className="flex-1 overflow-y-auto px-6 sm:px-7 py-5 space-y-5 min-h-0">
+
             {/* Description */}
             <div>
-              <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2">
-                System Overview & Architecture
+              <h4
+                className="text-xs font-mono font-bold uppercase tracking-wider mb-2"
+                style={{ color: 'var(--text-very-faint)' }}
+              >
+                System Overview &amp; Architecture
               </h4>
-              <p className="text-slate-700 dark:text-slate-300 text-sm leading-relaxed">
+              <p className="text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                 {project.fullDescription}
               </p>
             </div>
 
             {/* Key Features */}
             <div>
-              <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-indigo-600 dark:text-cyan-400 mb-3 flex items-center gap-1.5">
+              <h4
+                className="text-xs font-mono font-bold uppercase tracking-wider mb-3 flex items-center gap-1.5"
+                style={{ color: 'var(--accent)' }}
+              >
                 <Layers className="w-4 h-4" /> Key Technical Highlights
               </h4>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                 {project.keyFeatures.map((feat, i) => (
-                  <div key={i} className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/80 flex items-start gap-2.5">
-                    <CheckCircle2 className="w-4 h-4 text-indigo-500 shrink-0 mt-0.5" />
-                    <span className="text-xs text-slate-800 dark:text-slate-300 leading-snug">{feat}</span>
+                  <div
+                    key={i}
+                    className="p-3 rounded-xl flex items-start gap-2.5"
+                    style={{ backgroundColor: 'var(--bg-subtle)', border: '1px solid var(--border-subtle)' }}
+                  >
+                    <CheckCircle2 className="w-4 h-4 shrink-0 mt-0.5" style={{ color: 'var(--accent)' }} />
+                    <span className="text-xs leading-snug" style={{ color: 'var(--text-secondary)' }}>
+                      {feat}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -75,14 +126,22 @@ export const ProjectModal = ({ project, onClose }) => {
 
             {/* Tech Stack */}
             <div>
-              <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2.5">
-                Technologies & Tools
+              <h4
+                className="text-xs font-mono font-bold uppercase tracking-wider mb-2.5"
+                style={{ color: 'var(--text-very-faint)' }}
+              >
+                Technologies &amp; Tools
               </h4>
               <div className="flex flex-wrap gap-1.5">
                 {project.techStack.map((tech) => (
-                  <span 
+                  <span
                     key={tech}
-                    className="px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-800/80 text-slate-800 dark:text-slate-300 text-xs font-mono font-medium border border-slate-200 dark:border-slate-700/80"
+                    className="px-2.5 py-1 rounded text-xs font-mono font-medium"
+                    style={{
+                      backgroundColor: 'var(--bg-subtle)',
+                      color: 'var(--text-secondary)',
+                      border: '1px solid var(--border-subtle)',
+                    }}
                   >
                     {tech}
                   </span>
@@ -92,14 +151,22 @@ export const ProjectModal = ({ project, onClose }) => {
 
           </div>
 
-          {/* Modal Footer CTAs */}
-          <div className="pt-4 border-t border-slate-200 dark:border-slate-800 flex flex-wrap items-center justify-between gap-3">
+          {/* ── Footer CTAs (sticky, never scrolls) ── */}
+          <div
+            className="flex flex-wrap items-center justify-between gap-3 px-6 sm:px-7 py-4 shrink-0"
+            style={{ borderTop: '1px solid var(--border-main)' }}
+          >
             <div className="flex items-center gap-2.5">
               <a
                 href={project.githubLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 hover:text-indigo-600 dark:hover:text-cyan-400 text-xs font-semibold transition-all"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold transition-all"
+                style={{
+                  backgroundColor: 'var(--bg-subtle)',
+                  border: '1px solid var(--border-subtle)',
+                  color: 'var(--text-primary)',
+                }}
               >
                 <Github className="w-4 h-4" />
                 <span>Source Code</span>
@@ -111,7 +178,11 @@ export const ProjectModal = ({ project, onClose }) => {
                   e.preventDefault();
                   alert(`Demo link for ${project.title} can be linked to your live environment.`);
                 }}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-500 hover:to-indigo-600 text-white text-xs font-semibold shadow-indigo-glow transition-all"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-white text-xs font-semibold transition-all"
+                style={{
+                  background: 'linear-gradient(135deg, var(--accent), var(--accent-hover))',
+                  boxShadow: '0 0 15px var(--border-accent)',
+                }}
               >
                 <ExternalLink className="w-4 h-4" />
                 <span>Live Demo</span>
@@ -120,7 +191,8 @@ export const ProjectModal = ({ project, onClose }) => {
 
             <button
               onClick={onClose}
-              className="text-xs text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white font-medium"
+              className="text-xs font-medium hover:underline"
+              style={{ color: 'var(--text-very-faint)' }}
             >
               Close Window
             </button>
@@ -132,6 +204,4 @@ export const ProjectModal = ({ project, onClose }) => {
   );
 };
 
-
-
-
+export default ProjectModal;

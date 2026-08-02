@@ -31,7 +31,7 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] text-slate-900 dark:bg-[#0B0F17] dark:text-slate-100 selection:bg-indigo-500 selection:text-white font-sans transition-colors duration-300 relative">
+    <div className="min-h-screen font-sans transition-colors duration-300 relative" style={{backgroundColor:'var(--bg-main)', color:'var(--text-primary)'}}>
 
       {/* Toast Notification Banner */}
       <AnimatePresence>
@@ -40,8 +40,8 @@ export function App() {
             initial={{ opacity: 0, y: -40, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -20, scale: 0.95 }}
-            className="fixed top-20 right-6 z-50 p-4 px-5 rounded-2xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 shadow-xl flex items-center gap-3 text-xs font-bold border border-indigo-500/20"
-          >
+            className="fixed top-20 right-6 z-50 p-4 px-5 rounded-2xl shadow-xl flex items-center gap-3 text-xs font-bold"
+            style={{backgroundColor:'var(--pill-dark-bg)', color:'var(--pill-dark-text)', border:'1px solid var(--border-accent)'}} >
             <CheckCircle2 className="w-4 h-4 text-emerald-400 dark:text-emerald-600" />
             <span>{toastMessage}</span>
           </motion.div>

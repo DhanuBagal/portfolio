@@ -14,18 +14,18 @@ export const Experience = () => {
   };
 
   return (
-    <section id="experience" className="py-24 relative overflow-hidden bg-[#F8FAFC] dark:bg-[#0B0F17]">
+    <section id="experience" className="py-24 relative overflow-hidden" style={{backgroundColor:'var(--bg-main)', color:'var(--text-primary)'}}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header (Nikola Radeski Style) */}
         <div className="flex flex-col items-start mb-16">
-          <span className="text-xs font-mono font-bold tracking-wider uppercase text-indigo-600 dark:text-indigo-400 mb-3">
+          <span className="text-xs font-mono font-bold tracking-wider uppercase mb-3" style={{color:'var(--accent)'}}>
             / 03 Experience
           </span>
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">
-            Work <span className="bg-gradient-to-r from-indigo-600 to-cyan-500 bg-clip-text text-transparent">experience</span>
+          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight" style={{color:'var(--text-primary)'}}>
+            Work <span style={{background:'linear-gradient(135deg, var(--accent), var(--accent-rose))', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', backgroundClip:'text'}}>experience</span>
           </h2>
-          <p className="text-slate-600 dark:text-slate-300 mt-3 max-w-2xl text-base leading-relaxed">
+          <p className="mt-3 max-w-2xl text-base leading-relaxed" style={{color:'var(--text-muted)'}}>
             My professional trajectory building production software features, microservices, and client solutions.
           </p>
         </div>
@@ -34,7 +34,7 @@ export const Experience = () => {
         <div className="max-w-4xl mx-auto relative">
           
           {/* Vertical Line */}
-          <div className="absolute left-4 sm:left-1/2 top-0 bottom-0 w-0.5 bg-slate-200 dark:bg-slate-800 transform -translate-x-1/2 hidden sm:block" />
+          <div className="absolute left-4 sm:left-1/2 top-0 bottom-0 w-0.5 transform -translate-x-1/2 hidden sm:block" style={{backgroundColor:'var(--border-subtle)'}} />
 
           <div className="space-y-10">
             {experience.map((item, idx) => {
@@ -51,8 +51,8 @@ export const Experience = () => {
                   className="relative"
                 >
                   {/* Timeline Node */}
-                  <div className="absolute left-4 sm:left-1/2 top-6 w-8 h-8 rounded-full bg-white dark:bg-[#161E2E] border-2 border-indigo-500 flex items-center justify-center transform -translate-x-1/2 z-20 shadow-indigo-glow">
-                    <Briefcase className="w-4 h-4 text-indigo-600 dark:text-cyan-400" />
+                  <div className="absolute left-4 sm:left-1/2 top-6 w-8 h-8 rounded-full flex items-center justify-center transform -translate-x-1/2 z-20" style={{backgroundColor:'var(--bg-card)', border:'2px solid #D4933A', boxShadow:'0 0 15px var(--border-accent)'}}>
+                    <Briefcase className="w-4 h-4" style={{color:'var(--accent)'}} />
                   </div>
 
                   {/* Experience Card Box */}
@@ -61,65 +61,66 @@ export const Experience = () => {
                       
                       {/* Promotion Banner */}
                       {item.isPromoted && (
-                        <div className="mb-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/80 text-emerald-700 dark:text-emerald-300 text-xs font-semibold">
+                        <div className="mb-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold" style={{backgroundColor:'var(--bg-accent-subtle)', border:'1px solid var(--border-accent)', color:'var(--accent-warm-text)'}}>
                           <span>🎉 {item.promotionText}</span>
                         </div>
                       )}
 
                       {/* Role & Company Header */}
                       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 mb-2">
-                        <h3 className="text-xl font-bold text-slate-900 dark:text-white">
+                        <h3 className="text-xl font-bold" style={{color:'var(--text-primary)'}}>
                           {item.role}
                         </h3>
-                        <span className="text-xs font-mono font-semibold px-2.5 py-0.5 rounded bg-slate-900 text-white shrink-0 w-fit">
+                        <span className="text-xs font-mono font-semibold px-2.5 py-0.5 rounded text-white shrink-0 w-fit" style={{backgroundColor:'var(--pill-dark-bg)'}}>
                           {item.type}
                         </span>
                       </div>
 
-                      <div className="text-indigo-600 dark:text-cyan-400 font-bold text-sm mb-3 font-mono">
+                      <div className="font-bold text-sm mb-3 font-mono" style={{color:'var(--accent)'}}>
                         {item.company}
                       </div>
 
                       {/* Info Pills */}
-                      <div className="flex flex-wrap items-center gap-4 text-xs text-slate-600 dark:text-slate-400 font-medium mb-5 pb-4 border-b border-slate-200 dark:border-slate-800">
+                      <div className="flex flex-wrap items-center gap-4 text-xs font-medium mb-5 pb-4" style={{color:'var(--text-faint)', borderBottom:'1px solid var(--border-main)'}}>
                         <div className="flex items-center gap-1.5">
-                          <Calendar className="w-3.5 h-3.5 text-indigo-500" />
+                          <Calendar className="w-3.5 h-3.5" style={{color:'var(--accent)'}} />
                           <span>{item.period}</span>
                         </div>
                         <div className="flex items-center gap-1.5">
-                          <MapPin className="w-3.5 h-3.5 text-indigo-500" />
+                          <MapPin className="w-3.5 h-3.5" style={{color:'var(--accent)'}} />
                           <span>{item.location}</span>
                         </div>
                       </div>
 
                       {/* Expandable Highlights List */}
                       <div className="space-y-3">
-                        {item.highlights.slice(0, isExpanded ? item.highlights.length : 2).map((hl, hIdx) => (
-                          <div key={hIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
-                            <CheckCircle2 className="w-4 h-4 text-indigo-500 shrink-0 mt-0.5" />
-                            <div>
-                              <strong className="text-slate-900 dark:text-white font-bold">{hl.title}: </strong>
-                              <span>{hl.detail}</span>
+                          {item.highlights.slice(0, isExpanded ? item.highlights.length : 2).map((hl, hIdx) => (
+                            <div key={hIdx} className="flex items-start gap-2.5 text-xs sm:text-sm leading-relaxed" style={{color:'var(--text-secondary)'}}>
+                              <CheckCircle2 className="w-4 h-4 shrink-0 mt-0.5" style={{color:'var(--accent)'}} />
+                              <div>
+                                <strong className="font-bold" style={{color:'var(--text-primary)'}}>{hl.title}: </strong>
+                                <span>{hl.detail}</span>
+                              </div>
                             </div>
-                          </div>
-                        ))}
+                          ))}
                       </div>
 
                       {/* Toggle Expand Button */}
-                      {item.highlights.length > 2 && (
-                        <button
-                          onClick={() => toggleExpand(item.id)}
-                          className="mt-4 inline-flex items-center gap-1.5 text-xs font-bold text-indigo-600 dark:text-cyan-400 hover:underline pt-1"
-                        >
-                          <span>{isExpanded ? 'Show Less' : `View All (${item.highlights.length}) Details`}</span>
-                          {isExpanded ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
-                        </button>
-                      )}
+                        {item.highlights.length > 2 && (
+                          <button
+                            onClick={() => toggleExpand(item.id)}
+                            className="mt-4 inline-flex items-center gap-1.5 text-xs font-bold hover:underline pt-1"
+                            style={{color:'var(--accent)'}}
+                          >
+                            <span>{isExpanded ? 'Show Less' : `View All (${item.highlights.length}) Details`}</span>
+                            {isExpanded ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+                          </button>
+                        )}
 
                       {/* Tech Stack Tags */}
-                      <div className="mt-5 pt-4 border-t border-slate-200 dark:border-slate-800 flex flex-wrap gap-1.5">
+                      <div className="mt-5 pt-4 flex flex-wrap gap-1.5" style={{borderTop:'1px solid var(--border-main)'}}>
                         {item.techStack.map((tech) => (
-                          <span key={tech} className="px-2.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800/80 text-slate-800 dark:text-slate-300 text-[11px] font-mono font-medium border border-slate-200 dark:border-slate-700/80">
+                          <span key={tech} className="px-2.5 py-0.5 rounded text-[11px] font-mono font-medium" style={{backgroundColor:'var(--bg-subtle)', color:'var(--text-secondary)', border:'1px solid var(--border-subtle)'}}>
                             {tech}
                           </span>
                         ))}

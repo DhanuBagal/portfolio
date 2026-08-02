@@ -16,14 +16,14 @@ export const Marquee = () => {
   const marqueeList = [...items, ...items, ...items];
 
   return (
-    <div className="w-full py-4 bg-[#F8FAFC] dark:bg-[#0B0F17] border-y border-slate-200 dark:border-slate-800/80 overflow-hidden select-none">
+    <div className="w-full py-4 overflow-hidden select-none" style={{backgroundColor:'var(--bg-main)', borderTop:'1px solid var(--border-main)', borderBottom:'1px solid var(--border-main)'}}>
       <div className="animate-marquee flex items-center whitespace-nowrap gap-6">
         {marqueeList.map((item, idx) => (
           <div key={idx} className="flex items-center gap-6 shrink-0">
-            <span className="text-xs sm:text-sm font-mono font-semibold tracking-wide text-slate-800 dark:text-slate-200">
+            <span className="text-xs sm:text-sm font-mono font-semibold tracking-wide" style={{color:'var(--text-secondary)'}}>
               {item}
             </span>
-            <span className="text-indigo-600 dark:text-cyan-400 font-mono font-bold text-sm">
+            <span className="font-mono font-bold text-sm" style={{color:'var(--accent)'}}>
               /
             </span>
           </div>

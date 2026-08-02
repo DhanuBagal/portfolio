@@ -11,18 +11,18 @@ export const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
 
   return (
-    <section id="projects" className="py-24 relative overflow-hidden bg-[#F8FAFC] dark:bg-[#0B0F17]">
+    <section id="projects" className="py-24 relative overflow-hidden" style={{backgroundColor:'var(--bg-main)', color:'var(--text-primary)'}}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header (Nikola Radeski Style) */}
         <div className="flex flex-col items-start mb-16">
-          <span className="text-xs font-mono font-bold tracking-wider uppercase text-indigo-600 dark:text-indigo-400 mb-3">
+          <span className="text-xs font-mono font-bold tracking-wider uppercase mb-3" style={{color:'var(--accent)'}}>
             / 04 Work & Projects
           </span>
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">
-            Featured <span className="bg-gradient-to-r from-indigo-600 to-cyan-500 bg-clip-text text-transparent">projects</span>
+          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight" style={{color:'var(--text-primary)'}}>
+            Featured <span style={{background:'linear-gradient(135deg, var(--accent), var(--accent-rose))', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', backgroundClip:'text'}}>projects</span>
           </h2>
-          <p className="text-slate-600 dark:text-slate-300 mt-3 max-w-2xl text-base leading-relaxed">
+          <p className="mt-3 max-w-2xl text-base leading-relaxed" style={{color:'var(--text-muted)'}}>
             Full-stack web applications, automated cloud pipelines, and security architectures built with clean code.
           </p>
         </div>
@@ -40,22 +40,22 @@ export const Projects = () => {
             >
               <div>
                 {/* Visual Header Banner */}
-                <div className="h-40 w-full bg-gradient-to-tr from-indigo-900/30 via-slate-900/60 to-cyan-900/30 p-6 relative flex flex-col justify-between border-b border-slate-200 dark:border-slate-800">
+                <div className="h-40 w-full p-6 relative flex flex-col justify-between" style={{background:'linear-gradient(135deg, rgba(212,147,58,0.25), rgba(44,26,14,0.7), rgba(196,123,106,0.25))', borderBottom:'1px solid var(--border-main)'}}>
                   <div className="flex items-center justify-between">
-                    <span className="px-2.5 py-1 rounded bg-slate-900/90 text-cyan-300 text-xs font-mono font-semibold border border-cyan-800/40">
+                    <span className="px-2.5 py-1 rounded text-xs font-mono font-semibold" style={{backgroundColor:'var(--pill-dark-bg)', color:'var(--accent)', border:'1px solid var(--border-accent)'}}>
                       {project.category}
                     </span>
-                    <FolderGit2 className="w-5 h-5 text-slate-400 group-hover:text-cyan-400 transition-colors" />
+                    <FolderGit2 className="w-5 h-5" style={{color:'var(--accent)'}} />
                   </div>
 
-                  <h3 className="text-lg font-bold text-white group-hover:text-cyan-300 transition-colors line-clamp-2">
+                  <h3 className="text-lg font-bold text-white line-clamp-2">
                     {project.title}
                   </h3>
                 </div>
 
                 {/* Card Content Body */}
                 <div className="p-6">
-                  <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-5 line-clamp-3">
+                  <p className="text-xs sm:text-sm leading-relaxed mb-5 line-clamp-3" style={{color:'var(--text-muted)'}}>
                     {project.summary}
                   </p>
 
@@ -64,7 +64,8 @@ export const Projects = () => {
                     {project.techStack.map((tech) => (
                       <span
                         key={tech}
-                        className="px-2.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800/80 text-slate-800 dark:text-slate-300 text-[11px] font-mono font-medium border border-slate-200 dark:border-slate-700/80"
+                        className="px-2.5 py-0.5 rounded text-[11px] font-mono font-medium"
+                        style={{backgroundColor:'var(--bg-subtle)', color:'var(--text-secondary)', border:'1px solid var(--border-subtle)'}}
                       >
                         {tech}
                       </span>
@@ -74,10 +75,11 @@ export const Projects = () => {
               </div>
 
               {/* Action Footer */}
-              <div className="p-6 pt-4 flex items-center justify-between border-t border-slate-200 dark:border-slate-800 mt-auto">
+              <div className="p-6 pt-4 flex items-center justify-between mt-auto" style={{borderTop:'1px solid var(--border-main)'}}>
                 <button
                   onClick={() => setSelectedProject(project)}
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-indigo-600 dark:text-cyan-400 hover:underline group/btn"
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold hover:underline group/btn"
+                  style={{color:'var(--accent)'}}
                 >
                   <span>View Full Details</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
@@ -88,7 +90,8 @@ export const Projects = () => {
                     href={project.githubLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 rounded-lg bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-cyan-400 transition-colors"
+                    className="p-2 rounded-lg transition-colors"
+                    style={{backgroundColor:'var(--bg-subtle)', border:'1px solid var(--border-subtle)', color:'var(--text-secondary)'}}
                     title="View Source Code"
                   >
                     <Github className="w-4 h-4" />
